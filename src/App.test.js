@@ -14,4 +14,8 @@ test('input testing',()=>{
   const placeHolderInput = screen.getByPlaceholderText("enter username")
   expect(checkInput).toBeInTheDocument()
   expect(placeHolderInput).toBeInTheDocument()
+  expect(checkInput).toHaveAttribute("name","username")
+  expect(checkInput).toHaveAttribute("id","uId")
+  expect(checkInput).toHaveAttribute("value","jyoti jingar")
 })
+
