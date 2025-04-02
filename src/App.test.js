@@ -1,8 +1,17 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import Input from './Input';
 
 test('renders learn react link', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+  const linkElement = screen.getByText(/jyoti jingar/i);
   expect(linkElement).toBeInTheDocument();
 });
+
+test('input testing',()=>{
+  render(<Input/>);
+  const checkInput = screen.getByRole('textbox');
+  const placeHolderInput = screen.getByPlaceholderText("enter username")
+  expect(checkInput).toBeInTheDocument()
+  expect(placeHolderInput).toBeInTheDocument()
+})
