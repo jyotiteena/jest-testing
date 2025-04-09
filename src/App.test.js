@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 import Input from './Input';
 import TestGro from './TestGro';
+import ChangeEvent from './ChangeEvent';
 
 test('renders learn react link', () => {
   render(<App />);
@@ -78,4 +79,11 @@ describe.skip("group2 testing skip for ui", () => {
     const checkInput = screen.getByRole('textbox');
     expect(checkInput).toHaveAttribute("name", "test")
   })
+})
+
+test("onchange event",()=>{
+  render(<ChangeEvent/>)
+  const inputChck = screen.getByRole('textbox');
+  fireEvent.change(inputChck,{target:{value:'a'}})
+  expect(inputChck.value).toBe("a")
 })
