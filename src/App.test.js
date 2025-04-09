@@ -3,6 +3,7 @@ import App from './App';
 import Input from './Input';
 import TestGro from './TestGro';
 import ChangeEvent from './ChangeEvent';
+import ClickEvent from './ClickEvent';
 
 test('renders learn react link', () => {
   render(<App />);
@@ -86,4 +87,11 @@ test("onchange event",()=>{
   const inputChck = screen.getByRole('textbox');
   fireEvent.change(inputChck,{target:{value:'a'}})
   expect(inputChck.value).toBe("a")
+})
+
+test("click event",()=>{
+  render(<ClickEvent/>)
+  const btn = screen.getByRole('button')
+  fireEvent.click(btn)
+  expect(screen.getByText("click testing")).toBeInTheDocument()
 })
